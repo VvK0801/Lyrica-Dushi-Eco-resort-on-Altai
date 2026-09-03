@@ -27,14 +27,14 @@
         .btn-light { background: #FFFFFF; color: var(--dark); border: 2px solid #FFFFFF; font-weight: 800; }
         .btn-light:hover { background: var(--gold); color: var(--dark); border-color: var(--gold); }
 
-        /* ===== ШАПКА (НАВБАР) — СЛОВА В РЯД ===== */
+        /* ===== ШАПКА (НАВБАР) — МАКСИМАЛЬНО КОМПАКТНАЯ ===== */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 100;
-            padding: 10px 20px;
+            padding: 6px 12px;
             background: rgba(15, 42, 34, 0.95);
             backdrop-filter: blur(10px);
         }
@@ -42,26 +42,27 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
             flex-wrap: nowrap;
         }
         .logo {
             display: flex;
             align-items: center;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 800;
             color: var(--white);
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.4);
             font-family: 'Playfair Display', serif;
             white-space: nowrap;
+            flex-shrink: 0;
         }
         .logo img {
-            height: 36px;
+            height: 30px;
             width: auto;
             display: block;
-            margin-right: 8px;
+            margin-right: 6px;
             filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
         }
         .logo span {
@@ -69,17 +70,18 @@
         }
         .nav-links {
             display: flex;
-            gap: 14px;
+            gap: 8px;
             flex-wrap: nowrap;
             align-items: center;
         }
         .nav-links a {
             color: rgba(255,255,255,0.9);
             text-decoration: none;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 500;
             transition: color 0.3s;
             white-space: nowrap;
+            padding: 2px 4px;
         }
         .nav-links a:hover {
             color: var(--gold);
@@ -87,13 +89,14 @@
         .nav-btn {
             background: var(--gold);
             color: var(--dark);
-            padding: 6px 16px;
+            padding: 4px 12px;
             border-radius: 30px;
             font-weight: 700;
             text-decoration: none;
             transition: 0.3s;
-            font-size: 12px;
+            font-size: 10px;
             white-space: nowrap;
+            flex-shrink: 0;
         }
         .nav-btn:hover {
             background: var(--white);
@@ -283,73 +286,103 @@
             .infra-grid { grid-template-columns: 1fr 1fr; }
         }
 
+        /* ===== МОБИЛЬНАЯ ВЕРСИЯ: ВСЁ ВЛЕЗАЕТ! ===== */
         @media (max-width: 768px) {
-            .nav-btn { display: none !important; }
-            .logo span { display: none !important; }
-            .logo { font-size: 0 !important; }
-            .logo img { height: 30px !important; margin-right: 0 !important; }
-            .nav-links { gap: 5px !important; flex-wrap: nowrap !important; }
-            .nav-links a { font-size: 11px !important; padding: 3px 5px !important; white-space: nowrap !important; }
-            .navbar { padding: 6px 8px !important; }
-            .nav-inner { flex-wrap: nowrap !important; gap: 6px !important; }
+            /* Убираем кнопку "Забронировать" */
+            .nav-btn {
+                display: none !important;
+            }
 
-            .container { padding: 0 12px; }
-            .hero { min-height: 450px; padding: 60px 0 30px; }
-            .hero h1 { font-size: 34px; }
-            .hero p { font-size: 14px; }
-            .hero-buttons .btn { padding: 10px 20px; font-size: 12px; width: 100%; max-width: 200px; }
-            .banya-carousel, .reception-carousel { height: 220px; }
-            .banya-carousel-slide img, .reception-carousel-slide img { height: 220px; }
-            .banya-section, .reception-section, .tea-section, .craft-section { padding: 25px 15px; }
-            .tea-img, .craft-img { height: 220px; }
+            /* Убираем ТЕКСТ "Лирика Души", оставляем только картинку */
+            .logo span {
+                display: none !important;
+            }
+            .logo {
+                font-size: 0 !important;
+            }
+            .logo img {
+                height: 26px !important;
+                margin-right: 0 !important;
+            }
+
+            /* Ссылки — максимально компактно */
+            .nav-links {
+                gap: 3px !important;
+                flex-wrap: nowrap !important;
+            }
+            .nav-links a {
+                font-size: 9px !important;
+                padding: 2px 3px !important;
+                white-space: nowrap !important;
+                letter-spacing: 0 !important;
+            }
+
+            /* Шапка — минимальная */
+            .navbar {
+                padding: 4px 6px !important;
+            }
+            .nav-inner {
+                gap: 4px !important;
+            }
+
+            .container { padding: 0 10px; }
+            .hero { min-height: 400px; padding: 55px 0 25px; }
+            .hero h1 { font-size: 30px; }
+            .hero p { font-size: 13px; }
+            .hero-buttons .btn { padding: 8px 16px; font-size: 11px; width: 100%; max-width: 180px; }
+            .banya-carousel, .reception-carousel { height: 200px; }
+            .banya-carousel-slide img, .reception-carousel-slide img { height: 200px; }
+            .banya-section, .reception-section, .tea-section, .craft-section { padding: 20px 12px; }
+            .tea-img, .craft-img { height: 200px; }
             .houses-grid { grid-template-columns: 1fr; }
-            .house-card { height: 340px; }
+            .house-card { height: 300px; }
             .activities-grid { grid-template-columns: 1fr 1fr; }
-            .activity-card { height: 160px; }
+            .activity-card { height: 140px; }
             .infra-grid { grid-template-columns: 1fr; }
-            .infra-card { height: 220px; }
+            .infra-card { height: 200px; }
             .infra-card[style*="grid-column: span 2"] { grid-column: span 1 !important; }
-            .about-img { height: 250px; border-radius: 80px 80px 20px 20px; }
-            .about-stats { gap: 12px; }
-            .stat-item h3 { font-size: 24px; }
-            .booking-section { padding: 25px 15px; }
-            .booking-tabs { gap: 6px; }
-            .tab { padding: 6px 14px; font-size: 11px; }
+            .about-img { height: 220px; border-radius: 60px 60px 20px 20px; }
+            .about-stats { gap: 10px; }
+            .stat-item h3 { font-size: 20px; }
+            .booking-section { padding: 20px 12px; }
+            .booking-tabs { gap: 4px; }
+            .tab { padding: 5px 12px; font-size: 10px; }
             .booking-form { grid-template-columns: 1fr; }
             .booking-btn { grid-column: span 1; }
-            .complex-card { padding: 20px; }
-            .complex-img { height: 180px; }
-            .review-card { padding: 18px; }
-            .review-text { font-size: 13px; }
-            .contact-form { padding: 20px; }
-            .footer-nav { gap: 12px; }
-            .footer-nav a { font-size: 11px; }
-            .modal { padding: 20px; }
-            .health-path-carousel { height: 220px; }
-            .health-path-carousel-slide img { height: 220px; }
-            .section { padding: 25px 0; }
-            .section-title { font-size: 24px; }
-            .section-subtitle { font-size: 10px; margin-bottom: 20px; }
+            .complex-card { padding: 16px; }
+            .complex-img { height: 160px; }
+            .review-card { padding: 15px; }
+            .review-text { font-size: 12px; }
+            .contact-form { padding: 16px; }
+            .footer-nav { gap: 10px; }
+            .footer-nav a { font-size: 10px; }
+            .modal { padding: 16px; }
+            .health-path-carousel { height: 200px; }
+            .health-path-carousel-slide img { height: 200px; }
+            .section { padding: 20px 0; }
+            .section-title { font-size: 22px; }
+            .section-subtitle { font-size: 9px; margin-bottom: 15px; }
+            .hero-location { font-size: 8px; padding: 4px 10px; }
         }
 
         @media (max-width: 480px) {
-            .logo img { height: 24px !important; }
-            .nav-links a { font-size: 9px !important; padding: 2px 3px !important; }
-            .nav-links { gap: 3px !important; }
-            .hero h1 { font-size: 28px; }
-            .hero-location { font-size: 8px; letter-spacing: 2px; padding: 4px 10px; }
+            .logo img { height: 22px !important; }
+            .nav-links a { font-size: 8px !important; padding: 1px 2px !important; }
+            .nav-links { gap: 2px !important; }
+            .navbar { padding: 3px 4px !important; }
+            .hero h1 { font-size: 24px; }
             .activities-grid { grid-template-columns: 1fr; }
-            .activity-card { height: 180px; }
-            .house-card { height: 280px; }
-            .house-overlay h3 { font-size: 22px; }
-            .house-overlay { padding: 20px; }
-            .price-tag { font-size: 11px; padding: 4px 10px; }
-            .navbar { padding: 4px 6px !important; }
-            .about-img { height: 200px; }
-            .banya-carousel, .reception-carousel { height: 180px; }
-            .banya-carousel-slide img, .reception-carousel-slide img { height: 180px; }
-            .tea-img, .craft-img { height: 180px; }
-            .infra-card { height: 180px; }
+            .activity-card { height: 160px; }
+            .house-card { height: 250px; }
+            .house-overlay h3 { font-size: 18px; }
+            .house-overlay { padding: 15px; }
+            .price-tag { font-size: 10px; padding: 3px 8px; }
+            .about-img { height: 180px; }
+            .banya-carousel, .reception-carousel { height: 160px; }
+            .banya-carousel-slide img, .reception-carousel-slide img { height: 160px; }
+            .tea-img, .craft-img { height: 160px; }
+            .infra-card { height: 160px; }
+            .hero-buttons .btn { max-width: 150px; font-size: 10px; padding: 6px 12px; }
         }
     </style>
 </head>
@@ -362,15 +395,15 @@
                 <img src="images/logo.png" alt="Лирика Души"> Лирика <span>Души</span>
             </a>
             <div class="nav-links">
-                <a href="#about">О комплексе</a>
+                <a href="#about">О компл.</a>
                 <a href="#houses">Дома</a>
                 <a href="#banya">Баня</a>
                 <a href="#tea">Чайная</a>
-                <a href="#craft">Мастерская</a>
-                <a href="#spa">Зона отдыха</a>
+                <a href="#craft">Мастер.</a>
+                <a href="#spa">Зона от.</a>
                 <a href="#contacts">Контакты</a>
             </div>
-            <a href="#booking" class="nav-btn">Забронировать</a>
+            <a href="#booking" class="nav-btn">Забр.</a>
         </div>
     </nav>
 
