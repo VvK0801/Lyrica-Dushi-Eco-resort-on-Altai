@@ -27,7 +27,7 @@
         .btn-light { background: #FFFFFF; color: var(--dark); border: 2px solid #FFFFFF; font-weight: 800; }
         .btn-light:hover { background: var(--gold); color: var(--dark); border-color: var(--gold); }
 
-        /* ===== ШАПКА (НАВБАР) — ИСПРАВЛЕНА ===== */
+        /* ===== ШАПКА (НАВБАР) ===== */
         .navbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; padding: 12px 20px; background: rgba(15, 42, 34, 0.95); backdrop-filter: blur(10px); }
         .nav-inner { display: flex; justify-content: space-between; align-items: center; gap: 15px; flex-wrap: wrap; }
         .logo { display: flex; align-items: center; text-decoration: none; font-size: 20px; font-weight: 800; color: var(--white); letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0,0,0,0.4); font-family: 'Playfair Display', serif; }
@@ -212,7 +212,7 @@
         .contact-item p, .contact-item a { font-size: 17px; color: var(--dark); text-decoration: none; transition: color 0.3s; }
         .contact-item a:hover { color: var(--gold); }
 
-        /* ===== АДАПТИВНОСТЬ (МОБИЛЬНАЯ ВЕРСИЯ) ===== */
+        /* ===== МОБИЛЬНАЯ ВЕРСИЯ: компактная шапка + крупный текст ===== */
         @media (max-width: 1024px) {
             .houses-grid { grid-template-columns: repeat(2, 1fr); }
             .activities-grid { grid-template-columns: repeat(2, 1fr); }
@@ -224,66 +224,89 @@
         }
 
         @media (max-width: 768px) {
+            /* Убираем кнопку "Забронировать" */
+            .nav-btn {
+                display: none !important;
+            }
+
+            /* Компактная шапка */
+            .navbar {
+                padding: 10px 12px !important;
+            }
+
+            /* Увеличиваем ссылки */
+            .nav-links a {
+                font-size: 16px !important;
+                font-weight: 600 !important;
+                padding: 6px 10px !important;
+            }
+
+            /* Логотип крупнее */
+            .logo {
+                font-size: 20px !important;
+            }
+            .logo img {
+                height: 36px !important;
+            }
+
+            /* Меньше отступов между ссылками */
+            .nav-links {
+                gap: 5px !important;
+            }
+
             .container { padding: 0 15px; }
-            .nav-inner { flex-wrap: wrap; justify-content: center; }
-            .nav-links { gap: 10px; justify-content: center; }
-            .nav-links a { font-size: 12px; }
-            .logo { font-size: 17px; }
-            .logo img { height: 32px; }
-            .nav-btn { font-size: 12px; padding: 6px 16px; }
-            
             .hero { min-height: 500px; padding: 70px 0 40px; }
             .hero h1 { font-size: 38px; }
             .hero p { font-size: 15px; }
             .hero-buttons .btn { padding: 12px 24px; font-size: 13px; width: 100%; max-width: 220px; }
-            
             .banya-carousel, .reception-carousel { height: 250px; }
             .banya-carousel-slide img, .reception-carousel-slide img { height: 250px; }
-            
             .banya-section, .reception-section, .tea-section, .craft-section { padding: 30px 20px; }
             .tea-img, .craft-img { height: 250px; }
-            
             .houses-grid { grid-template-columns: 1fr; }
             .house-card { height: 380px; }
-            
             .activities-grid { grid-template-columns: 1fr 1fr; }
             .activity-card { height: 180px; }
-            
             .infra-grid { grid-template-columns: 1fr; }
             .infra-card { height: 250px; }
             .infra-card[style*="grid-column: span 2"] { grid-column: span 1 !important; }
-            
             .about-img { height: 280px; border-radius: 100px 100px 20px 20px; }
             .about-stats { gap: 15px; }
             .stat-item h3 { font-size: 28px; }
-            
             .booking-section { padding: 30px 20px; }
             .booking-tabs { gap: 8px; }
             .tab { padding: 8px 16px; font-size: 12px; }
             .booking-form { grid-template-columns: 1fr; }
             .booking-btn { grid-column: span 1; }
-            
             .complex-card { padding: 25px; }
             .complex-img { height: 200px; }
-            
             .review-card { padding: 20px; }
             .review-text { font-size: 14px; }
-            
             .contact-form { padding: 25px; }
             .footer-nav { gap: 15px; }
             .footer-nav a { font-size: 12px; }
-            
             .modal { padding: 25px; }
-            
             .health-path-carousel { height: 250px; }
             .health-path-carousel-slide img { height: 250px; }
-            
             .section { padding: 30px 0; }
             .section-title { font-size: 26px; }
             .section-subtitle { font-size: 11px; margin-bottom: 25px; }
         }
 
         @media (max-width: 480px) {
+            .nav-links a {
+                font-size: 14px !important;
+                padding: 4px 6px !important;
+            }
+            .logo {
+                font-size: 17px !important;
+            }
+            .logo img {
+                height: 30px !important;
+            }
+            .navbar {
+                padding: 8px 10px !important;
+            }
             .hero h1 { font-size: 32px; }
             .hero-location { font-size: 9px; letter-spacing: 2px; padding: 6px 12px; }
             .activities-grid { grid-template-columns: 1fr; }
@@ -292,8 +315,7 @@
             .house-overlay h3 { font-size: 24px; }
             .house-overlay { padding: 25px; }
             .price-tag { font-size: 12px; padding: 6px 12px; }
-            .nav-links { gap: 6px; }
-            .nav-links a { font-size: 10px; }
+            .nav-links { gap: 4px !important; }
         }
     </style>
 </head>
