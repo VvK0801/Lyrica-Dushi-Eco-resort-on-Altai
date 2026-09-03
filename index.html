@@ -289,9 +289,16 @@
                 display: none !important;
             }
 
-            /* Шапка компактная */
-            .navbar {
-                padding: 8px 10px !important;
+            /* Убираем ТЕКСТ "Лирика Души", оставляем только картинку логотипа */
+            .logo span {
+                display: none !important;
+            }
+            .logo {
+                font-size: 0 !important;
+            }
+            .logo img {
+                height: 32px !important;
+                margin-right: 0 !important;
             }
 
             /* Ссылки в ряд, не переносятся */
@@ -305,12 +312,9 @@
                 white-space: nowrap !important;
             }
 
-            /* Логотип компактный */
-            .logo {
-                font-size: 16px !important;
-            }
-            .logo img {
-                height: 28px !important;
+            /* Шапка компактная */
+            .navbar {
+                padding: 8px 10px !important;
             }
 
             /* Контейнер без переносов */
@@ -359,15 +363,12 @@
         }
 
         @media (max-width: 480px) {
+            .logo img {
+                height: 26px !important;
+            }
             .nav-links a {
                 font-size: 10px !important;
                 padding: 3px 4px !important;
-            }
-            .logo {
-                font-size: 14px !important;
-            }
-            .logo img {
-                height: 24px !important;
             }
             .nav-links {
                 gap: 4px !important;
@@ -380,6 +381,7 @@
             .house-overlay h3 { font-size: 24px; }
             .house-overlay { padding: 25px; }
             .price-tag { font-size: 12px; padding: 6px 12px; }
+            .navbar { padding: 6px 8px !important; }
         }
     </style>
 </head>
